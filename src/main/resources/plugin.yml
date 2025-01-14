@@ -1,0 +1,9 @@
+name: WarpPlugin
+version: '${project.version}'
+main: net.heckerdev.warpplugin.WarpPlugin
+description: 'A plugin that allows you to warp to different locations.'
+prefix: WarpPlugin
+api-version: '1.20'
+authors: ['Hecker_01', 'HeckerDev']
+depend:
+  - Vault
