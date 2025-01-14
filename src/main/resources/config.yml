@@ -1,0 +1,7 @@
+database:
+  ip: localhost
+  port: 3306
+  database-name: WarpsDatabase
+  username: root
+  password: mypass
+file-version: 1.0

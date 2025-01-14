@@ -2,6 +2,7 @@ package net.heckerdev.warpplugin.database;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
+import net.heckerdev.warpplugin.WarpPlugin;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,9 +17,14 @@ public class DataSource {
 
     private static void startTheDamnThing() {
         config.setDriverClassName("org.mariadb.jdbc.Driver");
-        config.setJdbcUrl("jdbc:mariadb://localhost:3306/WarpPlugin");
-        config.setUsername("root");
-        config.setPassword("");
+        String ip = WarpPlugin.getInstance().getConfig().getString("database.ip");
+        String port = WarpPlugin.getInstance().getConfig().getString("database.port");
+        String database = WarpPlugin.getInstance().getConfig().getString("database.database-name", "WarpsDatabase");
+        String username = WarpPlugin.getInstance().getConfig().getString("database.username");
+        String password = WarpPlugin.getInstance().getConfig().getString("database.password");
+        config.setJdbcUrl("jdbc:mariadb://" + ip + ":" + port + "/" + database);
+        config.setUsername(username);
+        config.setPassword(password);
         config.addDataSourceProperty("cachePrepStmts", "true");
         config.addDataSourceProperty("prepStmtCacheSize", "250");
         config.addDataSourceProperty("prepStmtCacheSqlLimit", "2048");
