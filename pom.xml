@@ -62,6 +62,7 @@
             <version>3.3.0</version>
             <configuration>
                 <outputDirectory>C:\Users\jesse\Desktop\testserver\plugins</outputDirectory>
+                <!--<outputDirectory>/Users/jesse/Desktop/testserver/plugins</outputDirectory>-->
             </configuration>
         </plugin>
     </plugins>
